@@ -1,8 +1,10 @@
 {
   "name": "next-per-user-cache-demo",
   "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ]
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "pnpm -C server dev & pnpm -C client dev",
+    "build": "pnpm -C client build",
+    "lint": "pnpm -C client lint"
+  }
 }
