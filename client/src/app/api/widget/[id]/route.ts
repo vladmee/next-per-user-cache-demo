@@ -12,7 +12,7 @@ const kvEnabled =
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  ctx: { params: Promise<{ id: string }> }
 ) {
   const { userId } = await requireSession().catch(() => ({
     userId: undefined,
@@ -21,7 +21,7 @@ export async function GET(
     return NextResponse.json({ error: "unauthenticated" }, { status: 401 });
   }
 
-  const { id: idStr } = await params;
+  const { id: idStr } = await ctx.params;
   const id = Number(idStr);
   if (![1, 2, 3, 4, 5].includes(id)) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
