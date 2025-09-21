@@ -1,0 +1,7 @@
+name = "delay-api"
+main = "dist/index.mjs"
+compatibility_date = "2024-11-01"
+minify = true
+
+[vars]
+CORS_ORIGINS = "http://localhost:3000,https://your-vercel-app.vercel.app"
